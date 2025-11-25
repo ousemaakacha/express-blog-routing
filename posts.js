@@ -1,3 +1,6 @@
+const express = require("express");
+const router = express.Router();
+
 const posts = [
   {
     id: 1,
@@ -40,8 +43,26 @@ const posts = [
     title: "Torta paesana",
     content: `La torta paesana è un dolce di origine lombarda e precisamente della Brianza, la zona compresa tra la provincia a nord di Milano e il lago di Lecco-Como. E' un dolce di origine contadina, dalle infinite varianti, ma realizzata principalmente con pane raffermo bagnato nel latte. E' infatti conosciuta anche come torta di pane o, in dialetto locale, “michelacc” ovvero mica e lac (pane e latte). A seconda dei gusti e delle disponibilità del momento, al pane ammollato ogni famiglia univa ingredienti diversi, chi l'uvetta o chi i pinoli ad esempio. Noi vi presentiamo la nostra versione con l'aggiunta di cacao e amaretti: perfetta da gustare per una merenda dal sapore rustico, la torta paesana è un perfetto dolce di recupero quando si ha del pane avanzato… ed è ancora più buona il giorno dopo!`,
     image: "/imgs/posts/torta_paesana.jpeg",
-    tags: ["Dolci", "Dolci al cioccolato", "Torte", "Ricette vegetariane", "Ricette al forno"],
+    tags: [
+      "Dolci",
+      "Dolci al cioccolato",
+      "Torte",
+      "Ricette vegetariane",
+      "Ricette al forno",
+    ],
   },
 ];
+
+// prende la lista di post (index)
+router.get("/", (req, res) => {
+  res.send("Posts List");
+});
+
+// mi mostra un post specifico (show)
+router.get("/:id", (req, res) => {
+  res.send(`Shows the post number ${req.params.id}`);
+});
+
+module.exports = router;
 
 module.exports = posts;

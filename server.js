@@ -7,6 +7,10 @@ app.use(express.static("public"));
 
 app.use("/posts", postRoutes);
 
+app.get("/", (req, res) => {
+  res.send("hello server");
+});
+
 app.listen(PORT, () => {
-  console.log(`Server starts at  http://localhost:${PORT} `);
+  console.log(`Server starts at  http://localhost:${PORT}`);
 });
