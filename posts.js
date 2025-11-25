@@ -1,6 +1,3 @@
-const express = require("express");
-const router = express.Router();
-
 const posts = [
   {
     id: 1,
@@ -52,17 +49,5 @@ const posts = [
     ],
   },
 ];
-
-// prende la lista di post (index)
-router.get("/", (req, res) => {
-  res.send("Posts List");
-});
-
-// mi mostra un post specifico (show)
-router.get("/:id", (req, res) => {
-  res.send(`Shows the post number ${req.params.id}`);
-});
-
-module.exports = router;
 
 module.exports = posts;
