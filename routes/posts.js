@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 
 // mi mostra un post specifico (show)
 router.get("/:id", (req, res) => {
-  res.send(`Shows the post number ${posts.id}`);
+  res.send(`Shows the post number ${req.params.id}`);
 });
 
 // store per un nuovo post
@@ -23,12 +23,12 @@ router.put("/:id", (req, res) => {
 });
 
 // modifica il post
-router.patch("/:id", (res, req) => {
+router.patch("/:id", (req, res) => {
   res.send(`modifies post using id: ${req.params.id}`);
 });
 
 // cancella il post
-router.delete("/:id", (res, req) => {
+router.delete("/:id", (req, res) => {
   res.send(`delete post with id: ${req.params.id}`);
 });
 
