@@ -1,9 +1,17 @@
+const posts = require("../data/posts");
+let posts = require("../data/posts");
+
 function index(req, res) {
   res.send("Posts List");
 }
 
 function get(req, res) {
-  res.send(`Shows the post number ${req.params.id}`);
+  const id = parseInt(req.params.id);
+  const post = posts.find((post) => post.id == id);
+  if (!post) {
+    return res.status(404).json({ error: "post not found" });
+  }
+  res.json(post);
 }
 
 function store(req, res) {
